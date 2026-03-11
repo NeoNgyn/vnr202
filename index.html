@@ -178,6 +178,12 @@
 <script data-purpose="grid-generator">
             // Data câu hỏi và câu trả lời
             const questionData = {
+              2: {
+                points: 2,
+                feature: "CỘNG 2 ĐIỂM",
+                featureIcon: "🎯",
+                hidePoints: true
+              },
               3: {
                 question: "Cuối năm 1946, vì sao kháng chiến chống Pháp trở thành tất yếu?",
                 points: 2,
@@ -189,6 +195,20 @@
                 ],
                 correct: "B"
               },
+              4: {
+                question: 'Văn kiện gắn liền trực tiếp với tinh thần "Thà hy sinh tất cả" là',
+                points: 1,
+                feature: "ĐỔI ĐIỂM VỚI NHÓM KHÁC",
+                featureIcon: "🔄",
+                hidePoints: true,
+                options: [
+                  "A. Chính cương vắn tắt",
+                  "B. Luận cương chính trị",
+                  "C. Lời kêu gọi Toàn quốc kháng chiến",
+                  "D. Hiệp định Giơnevơ"
+                ],
+                correct: "C"
+              },
               7: {
                 question: "Nội dung cốt lõi của đường lối kháng chiến chống Pháp là",
                 points: 1,
@@ -199,6 +219,19 @@
                   "D. Chỉ đấu tranh ngoại giao là chủ yếu"
                 ],
                 correct: "A"
+              },
+              8: {
+                question: "Mục tiêu trực tiếp của cuộc kháng chiến chống Pháp là",
+                points: 2,
+                feature: "TRẢ LỜI SAI ĐƯỢC ĐIỂM",
+                featureIcon: "🔀",
+                options: [
+                  "A. Mở rộng lãnh thổ",
+                  "B. Bảo vệ độc lập dân tộc và đánh bại xâm lược",
+                  "C. Lật đổ chế độ phong kiến ở châu Á",
+                  "D. Giành ảnh hưởng quốc tế"
+                ],
+                correct: "B"
               },
               12: {
                 question: "Vì sao sức dân được xem là nền tảng quyết định của cuộc kháng chiến?",
@@ -277,6 +310,20 @@
                 ],
                 correct: "A"
               },
+              6: {
+                question: "Ý nghĩa nổi bật của tinh thần \"Thà hy sinh tất cả\" là",
+                points: 2,
+                feature: "CƯỚP ĐIỂM 2 ĐIỂM CỦA NHÓM KHÁC",
+                featureIcon: "⚔️",
+                hidePoints: true,
+                options: [
+                  "A. Khẳng định quyết tâm không chấp nhận mất nước, nô lệ",
+                  "B. Chứng minh ta mạnh hơn Pháp ngay từ đầu",
+                  "C. Thể hiện mong muốn chiến tranh kéo dài",
+                  "D. Thể hiện sự phụ thuộc vào viện trợ nước ngoài"
+                ],
+                correct: "A"
+              },
               11: {
                 question: "Bài học lớn về kháng chiến chống Pháp là",
                 points: 3,
@@ -287,6 +334,63 @@
                   "D. Không cần kết hợp các mặt trận đấu tranh"
                 ],
                 correct: "B"
+              },
+              10: {
+                question: "Đường lối kháng chiến chống Pháp của Đảng được xác định theo hướng nào?",
+                points: 2,
+                feature: "CHỌN 1 NHÓM KHÁC TRẢ LỜI THAY",
+                featureIcon: "👥",
+                options: [
+                  "A. Chỉ dựa vào lực lượng vũ trang chính quy",
+                  "B. Chỉ dựa vào đấu tranh chính trị",
+                  "C. Kết hợp sức mạnh toàn dân với nhiều mặt trận",
+                  "D. Trông chờ hoàn toàn vào giúp đỡ bên ngoài"
+                ],
+                correct: "C"
+              },
+              13: {
+                question: "Trong các đặc điểm sau, đâu không thuộc đường lối kháng chiến chống Pháp?",
+                points: 3,
+                feature: "TRẢ LỜI ĐÚNG NHÂN ĐÔI, SAI TRỪ 1 NỬA HIỆN TẠI",
+                featureIcon: "⚠️",
+                options: [
+                  "A. Toàn dân",
+                  "B. Toàn diện",
+                  "C. Lâu dài",
+                  "D. Đánh nhanh thắng nhanh"
+                ],
+                correct: "D"
+              },
+              15: {
+                question: "\"Kháng chiến toàn dân\" được hiểu là",
+                points: 2,
+                feature: "MIÊU TẢ ĐÁP ÁN BẰNG HÌNH THỂ, ĐÚNG NHÂN ĐÔI",
+                featureIcon: "🎭",
+                options: [
+                  "A. Chỉ quân đội tham gia chiến đấu",
+                  "B. Chỉ công nhân và nông dân tham gia",
+                  "C. Toàn thể nhân dân tham gia kháng chiến bằng nhiều hình thức",
+                  "D. Chỉ cán bộ, đảng viên tham gia"
+                ],
+                correct: "C"
+              },
+              16: {
+                points: 2,
+                feature: "HÁT 1 ĐOẠN NHẠC ĐỎ (+2 ĐIỂM), KHÔNG HÁT TRỪ 2 ĐIỂM",
+                featureIcon: "🎵"
+              },
+              17: {
+                question: "Hiệp định Giơnevơ về Đông Dương được ký vào ngày tháng năm nào?",
+                points: 1,
+                feature: "NHÂN ĐÔI ĐIỂM",
+                featureIcon: "�",
+                options: [
+                  "A. 21/7/1954",
+                  "B. 07/5/1954",
+                  "C. 02/9/1945",
+                  "D. 30/4/1975"
+                ],
+                correct: "A"
               }
             };
             
@@ -317,8 +421,14 @@
                       const img = this.querySelector('img');
                       // Check if this tile has a question
                       if (questionData[tileIndex]) {
-                        img.src = './images/questionV2.png';
-                        img.alt = 'Question';
+                        // If question has feature, show clover, else show question icon
+                        if (questionData[tileIndex].feature) {
+                          img.src = './images/clover.png';
+                          img.alt = 'Clover';
+                        } else {
+                          img.src = './images/questionV2.png';
+                          img.alt = 'Question';
+                        }
                       } else {
                         img.src = './images/clover.png';
                         img.alt = 'Clover';
@@ -346,20 +456,65 @@
               
               if (questionData[index]) {
                 const data = questionData[index];
-                modalContent.innerHTML = `
-                  <div class="text-center">
-                    <img src="./images/questionV2.png" alt="Question" class="h-24 mx-auto mb-4" />
+                
+                // Check if this is a feature-only (no question)
+                if (!data.question) {
+                  // Feature-only display
+                  const pointsHtml = data.hidePoints ? '' : `
+                    <div class="bg-orange-800/30 rounded-lg p-4">
+                      <span class="text-xl font-bold text-orange-900">Giá trị: ${data.points} điểm</span>
+                    </div>
+                  `;
+                  
+                  modalContent.innerHTML = `
+                    <div class="text-center">
+                      <img src="./images/clover.png" alt="Clover" class="h-32 mx-auto mb-6" />
+                      <div class="bg-gradient-to-r from-red-600 to-orange-600 rounded-xl p-6 mb-4 shadow-lg border-2 border-yellow-300">
+                        <div class="flex items-center justify-center gap-3 mb-3">
+                          <span class="text-4xl">${data.featureIcon}</span>
+                          <span class="text-2xl font-black text-white uppercase tracking-wide">TÍNH NĂNG ĐẶC BIỆT</span>
+                        </div>
+                        <p class="text-xl font-bold text-yellow-100">${data.feature}</p>
+                      </div>
+                      ${pointsHtml}
+                    </div>
+                  `;
+                } else {
+                  // Normal question with or without feature
+                  const imgSrc = data.feature ? './images/clover.png' : './images/questionV2.png';
+                  const imgAlt = data.feature ? 'Clover' : 'Question';
+                  
+                  // Build feature display if exists
+                  const featureHtml = data.feature ? `
+                    <div class="bg-gradient-to-r from-red-600 to-orange-600 rounded-xl p-4 mb-4 shadow-lg border-2 border-yellow-300">
+                      <div class="flex items-center justify-center gap-2">
+                        <span class="text-3xl">${data.featureIcon}</span>
+                        <span class="text-xl font-black text-white uppercase tracking-wide">TÍNH NĂNG ĐẶC BIỆT</span>
+                      </div>
+                      <p class="text-lg font-bold text-yellow-100 mt-2">${data.feature}</p>
+                    </div>
+                  ` : '';
+                  
+                  const pointsHtml = data.hidePoints ? '' : `
                     <div class="bg-orange-800/30 rounded-lg p-3 mb-4">
                       <span class="text-lg font-bold text-orange-900">Câu hỏi có giá trị ${data.points} điểm</span>
                     </div>
-                    <p class="text-left text-2xl font-bold text-orange-900 mb-4">${data.question}</p>
-                    <div class="text-left space-y-2">
-                      ${data.options.map(option => {
-                        return `<p class="text-xl text-orange-800">${option}</p>`;
-                      }).join('')}
+                  `;
+                  
+                  modalContent.innerHTML = `
+                    <div class="text-center">
+                      <img src="${imgSrc}" alt="${imgAlt}" class="h-24 mx-auto mb-4" />
+                      ${featureHtml}
+                      ${pointsHtml}
+                      <p class="text-left text-2xl font-bold text-orange-900 mb-4">${data.question}</p>
+                      <div class="text-left space-y-2">
+                        ${data.options.map(option => {
+                          return `<p class="text-xl text-orange-800">${option}</p>`;
+                        }).join('')}
+                      </div>
                     </div>
-                  </div>
-                `;
+                  `;
+                }
               } else {
                 modalContent.innerHTML = `
                   <div class="text-center">
