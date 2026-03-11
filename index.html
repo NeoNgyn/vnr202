@@ -106,8 +106,10 @@
       border: 6px solid #ea580c;
       border-radius: 2rem;
       padding: 2rem;
-      max-width: 400px;
+      max-width: 700px;
       width: 90%;
+      max-height: 85vh;
+      overflow-y: auto;
       position: relative;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
       transform: scale(0.7);
@@ -134,6 +136,7 @@
       font-size: 1.5rem;
       color: #7c2d12;
       transition: all 0.2s;
+      padding-bottom: 6px;
     }
     
     .modal-close:hover {
@@ -173,13 +176,129 @@
 <!-- JS will populate tiles or we hardcode 20 for static representation -->
 <!-- Tile Template -->
 <script data-purpose="grid-generator">
+            // Data câu hỏi và câu trả lời
+            const questionData = {
+              3: {
+                question: "Cuối năm 1946, vì sao kháng chiến chống Pháp trở thành tất yếu?",
+                points: 2,
+                options: [
+                  "A. Vì ta muốn mở rộng chiến tranh ra cả nước",
+                  "B. Vì thực dân Pháp liên tiếp bội ước, gây hấn và xâm lược trở lại",
+                  "C. Vì ta đã chuẩn bị xong vũ khí hiện đại",
+                  "D. Vì ta muốn nhanh chóng giành thắng lợi quân sự"
+                ],
+                correct: "B"
+              },
+              7: {
+                question: "Nội dung cốt lõi của đường lối kháng chiến chống Pháp là",
+                points: 1,
+                options: [
+                  "A. Toàn dân, toàn diện, lâu dài, dựa vào sức mình là chính",
+                  "B. Đánh nhanh, thắng nhanh, dựa vào viện trợ",
+                  "C. Tập trung quân sự, bỏ qua chính trị",
+                  "D. Chỉ đấu tranh ngoại giao là chủ yếu"
+                ],
+                correct: "A"
+              },
+              12: {
+                question: "Vì sao sức dân được xem là nền tảng quyết định của cuộc kháng chiến?",
+                points: 2,
+                options: [
+                  "A. Vì nhân dân là lực lượng đông đảo, cung cấp người và của cho kháng chiến",
+                  "B. Vì nhân dân có vũ khí hiện đại nhất",
+                  "C. Vì nhân dân có quyền quyết định thay Đảng",
+                  "D. Vì nhân dân không cần tổ chức vẫn chiến thắng"
+                ],
+                correct: "A"
+              },
+              1: {
+                question: "Vai trò của lực lượng vũ trang trong kháng chiến toàn dân là",
+                points: 1,
+                options: [
+                  "A. Hoàn toàn thay thế vai trò của nhân dân",
+                  "B. Giữ vai trò nòng cốt",
+                  "C. Chỉ làm nhiệm vụ hậu cần",
+                  "D. Chỉ có tính tượng trưng"
+                ],
+                correct: "B"
+              },
+              18: {
+                question: "Vì sao phải kết hợp nhiều mặt trận trong kháng chiến?",
+                points: 2,
+                options: [
+                  "A. Vì ta không muốn chiến thắng quá sớm",
+                  "B. Vì địch xâm lược trên nhiều mặt, nên ta phải chống lại bằng sức mạnh tổng hợp",
+                  "C. Vì quân sự không còn cần thiết",
+                  "D. Vì ngoại giao có thể thay thế hoàn toàn chiến đấu"
+                ],
+                correct: "B"
+              },
+              9: {
+                question: "Vì sao kháng chiến chống Pháp phải trường kỳ?",
+                points: 2,
+                options: [
+                  "A. Vì ta muốn kéo dài chiến tranh",
+                  "B. Vì tương quan lực lượng ban đầu bất lợi cho ta",
+                  "C. Vì ta không muốn chiến đấu",
+                  "D. Vì ta chờ nước khác giải phóng hộ"
+                ],
+                correct: "B"
+              },
+              14: {
+                question: '"Trường kỳ" được hiểu đúng là',
+                points: 3,
+                options: [
+                  "A. Kéo dài chiến tranh một cách bị động",
+                  "B. Vừa đánh địch, vừa xây dựng lực lượng, từng bước chuyển yếu thành mạnh",
+                  "C. Chỉ lùi về phòng thủ",
+                  "D. Tránh chiến đấu trực tiếp trong mọi trường hợp"
+                ],
+                correct: "B"
+              },
+              20: {
+                question: '"Tự lực cánh sinh, dựa vào sức mình là chính" nghĩa là',
+                points: 2,
+                options: [
+                  "A. Từ chối mọi quan hệ quốc tế",
+                  "B. Chỉ dựa vào quân đội chính quy",
+                  "C. Lấy nội lực dân tộc làm chỗ dựa chủ yếu, đồng thời tranh thủ sự ủng hộ quốc tế khi có điều kiện",
+                  "D. Phụ thuộc hoàn toàn vào viện trợ bên ngoài"
+                ],
+                correct: "C"
+              },
+              5: {
+                question: "Ý nghĩa lớn nhất của đường lối kháng chiến chống Pháp là",
+                points: 3,
+                options: [
+                  "A. Tạo cơ sở đúng đắn để huy động sức mạnh toàn dân đi đến thắng lợi",
+                  "B. Làm cho chiến tranh kéo dài vô thời hạn",
+                  "C. Chỉ giúp ta thắng trên mặt trận ngoại giao",
+                  "D. Chỉ có ý nghĩa về mặt quân sự"
+                ],
+                correct: "A"
+              },
+              11: {
+                question: "Bài học lớn về kháng chiến chống Pháp là",
+                points: 3,
+                options: [
+                  "A. Chỉ cần lực lượng quân sự mạnh là đủ",
+                  "B. Phải phát huy đại đoàn kết toàn dân và có đường lối lãnh đạo đúng đắn",
+                  "C. Không cần hậu phương, chỉ cần tiền tuyến",
+                  "D. Không cần kết hợp các mặt trận đấu tranh"
+                ],
+                correct: "B"
+              }
+            };
+            
             document.addEventListener('DOMContentLoaded', () => {
               const grid = document.getElementById('game-grid');
               for (let i = 0; i < 20; i++) {
+                const tileIndex = i + 1; // 1-based index
                 const tile = document.createElement('button');
                 tile.className = 'tile-hover group relative w-20 h-20 md:w-32 md:h-32 bg-red-900/60 rounded-3xl flex items-center justify-center transition-all duration-200 cursor-pointer p-4 md:p-5';
                 tile.setAttribute('data-purpose', 'lucky-envelope-tile');
                 tile.setAttribute('data-flipped', 'false');
+                tile.setAttribute('data-index', tileIndex);
                 tile.innerHTML = `
                   <!-- Envelope Icon -->
                   <img src="./images/luckymoney.png" alt="Lì xì" class="w-full h-full object-contain transform transition-transform group-hover:scale-110 drop-shadow-lg" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));" />
@@ -196,15 +315,21 @@
                     // After half the animation, change image and background
                     setTimeout(() => {
                       const img = this.querySelector('img');
-                      img.src = './images/clover.png';
-                      img.alt = 'Clover';
+                      // Check if this tile has a question
+                      if (questionData[tileIndex]) {
+                        img.src = './images/questionV2.png';
+                        img.alt = 'Question';
+                      } else {
+                        img.src = './images/clover.png';
+                        img.alt = 'Clover';
+                      }
                       this.style.backgroundColor = 'rgb(234, 179, 8)';
                       this.style.transition = 'background-color 0.3s ease';
                       this.setAttribute('data-flipped', 'true');
                       
                       // Show modal after flip completes
                       setTimeout(() => {
-                        showModal();
+                        showModal(tileIndex);
                       }, 300);
                     }, 300);
                   }
@@ -215,8 +340,35 @@
             });
             
             // Modal functions
-            window.showModal = function() {
+            window.showModal = function(index) {
               const modal = document.getElementById('result-modal');
+              const modalContent = modal.querySelector('.modal-content > div');
+              
+              if (questionData[index]) {
+                const data = questionData[index];
+                modalContent.innerHTML = `
+                  <div class="text-center">
+                    <img src="./images/questionV2.png" alt="Question" class="h-24 mx-auto mb-4" />
+                    <div class="bg-orange-800/30 rounded-lg p-3 mb-4">
+                      <span class="text-lg font-bold text-orange-900">Câu hỏi có giá trị ${data.points} điểm</span>
+                    </div>
+                    <p class="text-left text-2xl font-bold text-orange-900 mb-4">${data.question}</p>
+                    <div class="text-left space-y-2">
+                      ${data.options.map(option => {
+                        return `<p class="text-xl text-orange-800">${option}</p>`;
+                      }).join('')}
+                    </div>
+                  </div>
+                `;
+              } else {
+                modalContent.innerHTML = `
+                  <div class="text-center">
+                    <img src="./images/clover.png" alt="Clover" class="w-32 h-32 mx-auto mb-4" />
+                    <p class="text-2xl font-bold text-orange-800">Chúc bạn may mắn<br/>lần sau</p>
+                  </div>
+                `;
+              }
+              
               modal.classList.add('show');
             };
             
