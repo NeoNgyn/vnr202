@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Giải Mã Lì Xì - Tết Game</title>
+<!-- BEGIN: Tailwind CSS & Configuration -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            tetRed: {
+              light: '#f43f5e',
+              DEFAULT: '#dc2626',
+              dark: '#991b1b',
+            },
+            tetGold: {
+              light: '#fde047',
+              DEFAULT: '#fbbf24',
+              dark: '#b45309',
+            }
+          },
+          backgroundImage: {
+            'tet-gradient': 'radial-gradient(circle at center, #ef4444 0%, #991b1b 100%)',
+          }
+        }
+      }
+    }
+  </script>
+<!-- END: Tailwind CSS & Configuration -->
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="typography">
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap');
+    
+    .gold-title {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to bottom, #fde68a 0%, #fbbf24 50%, #d97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+    }
+    
+    .glowing-outline {
+      text-shadow: 0 0 10px rgba(251, 191, 36, 0.8), 0 0 20px rgba(251, 191, 36, 0.4);
+    }
+  </style>
+<style data-purpose="animations">
+    @keyframes wave {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-wave {
+      animation: wave 4s ease-in-out infinite;
+    }
+    
+    .tile-hover:hover {
+      transform: scale(1.05) translateY(-2px);
+      filter: brightness(1.1);
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="bg-tet-gradient min-h-screen flex items-center justify-center overflow-hidden font-sans">
+<!-- BEGIN: Background Decorations -->
+<div class="fixed inset-0 pointer-events-none overflow-hidden" data-purpose="decorative-background">
+<!-- Wave Shapes -->
+<svg class="absolute bottom-0 left-0 w-full opacity-20" viewbox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,160L48,176C96,192,192,224,288,224C384,224,480,192,576,165.3C672,139,768,117,864,128C960,139,1056,181,1152,181.3C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" fill="#fbbf24" fill-opacity="1"></path>
+</svg>
+<!-- Floating Gold Accents -->
+<div class="absolute top-10 left-10 w-16 h-16 border-4 border-yellow-400/30 rounded-full animate-pulse"></div>
+<div class="absolute bottom-20 right-10 w-24 h-24 border-2 border-yellow-200/20 rounded-full animate-wave"></div>
+</div>
+<!-- END: Background Decorations -->
+<!-- BEGIN: Main Content Wrapper -->
+<main class="relative z-10 w-full max-w-6xl px-4 flex flex-col items-center">
+<!-- BEGIN: Header Section -->
+<header class="text-center mb-8" data-purpose="game-header">
+<h1 class="text-6xl md:text-8xl font-black gold-title glowing-outline tracking-tighter uppercase italic">
+        GIẢI MÃ LÌ XÌ
+      </h1>
+<p class="text-yellow-100/80 mt-2 font-medium tracking-widest uppercase">Khai Xuân Như Ý - Nhận Lộc Đầu Năm</p>
+</header>
+<!-- END: Header Section -->
+<div class="flex flex-col lg:flex-row items-center justify-center gap-12 w-full">
+<!-- BEGIN: Game Grid Panel -->
+<section class="bg-tetRed-dark/40 backdrop-blur-sm p-6 rounded-[2.5rem] shadow-2xl border-4 border-tetRed-light/30" data-purpose="game-grid-container">
+<!-- 5x5 Grid Layout -->
+<div class="grid grid-cols-5 gap-3 md:gap-4 p-2" id="game-grid">
+<!-- JS will populate tiles or we hardcode 25 for static representation -->
+<!-- Tile Template -->
+<script data-purpose="grid-generator">
+            document.addEventListener('DOMContentLoaded', () => {
+              const grid = document.getElementById('game-grid');
+              for (let i = 0; i < 25; i++) {
+                const tile = document.createElement('button');
+                tile.className = 'tile-hover group relative w-14 h-14 md:w-20 md:h-20 bg-tetRed-dark/60 rounded-xl flex items-center justify-center shadow-lg transition-all duration-200 cursor-pointer overflow-hidden border border-white/10';
+                tile.setAttribute('data-purpose', 'lucky-envelope-tile');
+                tile.innerHTML = `
+                  <!-- Envelope Icon -->
+                  <div class="relative w-10 h-14 md:w-12 md:h-16 bg-red-600 rounded-sm transform -rotate-12 transition-transform group-hover:rotate-0 shadow-md flex flex-col items-center justify-center">
+                    <div class="w-full h-1/3 bg-red-700 rounded-t-sm mb-1"></div>
+                    <div class="w-4 h-4 md:w-6 md:h-6 bg-tetGold rounded-full flex items-center justify-center shadow-inner">
+                      <div class="w-2 h-2 md:w-3 md:h-3 border-2 border-tetGold-dark rounded-full"></div>
+                    </div>
+                  </div>
+                `;
+                grid.appendChild(tile);
+              }
+            });
+          </script>
+</div>
+</section>
+<!-- END: Game Grid Panel -->
+<!-- BEGIN: Rewards Sidebar -->
+<aside class="flex flex-col items-center lg:items-start" data-purpose="rewards-illustration">
+<div class="relative group">
+<!-- Main Gift Box Container -->
+<div class="w-64 h-64 md:w-80 md:h-80 relative flex items-center justify-center">
+<!-- Decorative Glow -->
+<div class="absolute inset-0 bg-yellow-400/20 blur-3xl rounded-full scale-75 group-hover:scale-100 transition-transform duration-700"></div>
+<!-- Gift Illustration Composition -->
+<div class="relative z-10 animate-wave">
+<!-- Back Lì Xìs -->
+<div class="absolute -top-10 -left-5 w-16 h-24 bg-red-600 rounded-lg shadow-lg rotate-[-25deg] border-2 border-yellow-500"></div>
+<div class="absolute -top-12 left-10 w-16 h-24 bg-red-500 rounded-lg shadow-lg rotate-[10deg] border-2 border-yellow-400"></div>
+<!-- Gift Box Base -->
+<div class="w-48 h-40 md:w-56 md:h-48 bg-gradient-to-br from-red-600 to-red-800 rounded-2xl relative shadow-2xl border-t-4 border-red-400 overflow-hidden">
+<!-- Golden Ribbon Vertical -->
+<div class="absolute left-1/2 -translate-x-1/2 w-8 h-full bg-tetGold shadow-md"></div>
+<!-- Coins Pilling Up -->
+<div class="absolute -top-4 inset-x-0 flex justify-center gap-1">
+<div class="w-8 h-8 rounded-full bg-tetGold border-2 border-yellow-600 shadow-md"></div>
+<div class="w-8 h-8 rounded-full bg-tetGold border-2 border-yellow-600 shadow-md -mt-4"></div>
+<div class="w-8 h-8 rounded-full bg-tetGold border-2 border-yellow-600 shadow-md"></div>
+</div>
+</div>
+<!-- Ticket Elements -->
+<div class="absolute -bottom-4 -right-4 w-32 h-16 bg-white rounded-lg shadow-lg rotate-[15deg] border-l-8 border-yellow-500 flex items-center justify-center p-2">
+<div class="border-2 border-dashed border-gray-300 w-full h-full flex items-center justify-center text-red-600 font-bold text-xs uppercase">
+                  Voucher 100k
+                </div>
+</div>
+<!-- Front Coins -->
+<div class="absolute -bottom-2 left-4 w-10 h-10 rounded-full bg-tetGold border-2 border-yellow-700 flex items-center justify-center shadow-lg transform -rotate-12">
+<div class="w-4 h-4 border-2 border-yellow-800/50"></div>
+</div>
+</div>
+</div>
+<!-- CTA/Info Text -->
+<div class="mt-6 text-center lg:text-left">
+<h2 class="text-2xl font-bold text-yellow-300 mb-2">Quà Tặng Hấp Dẫn</h2>
+<p class="text-white/80 text-sm max-w-[250px]">Mở lì xì ngay để có cơ hội nhận hàng ngàn phần quà giá trị và voucher mua sắm!</p>
+<button class="mt-6 px-8 py-3 bg-tetGold hover:bg-tetGold-light text-tetRed-dark font-black rounded-full shadow-xl transition-all transform hover:scale-110 active:scale-95 uppercase tracking-widest">
+              Chơi Ngay
+            </button>
+</div>
+</div>
+</aside>
+<!-- END: Rewards Sidebar -->
+</div>
+<!-- BEGIN: Footer Branding -->
+<footer class="mt-12 text-white/40 text-xs flex items-center gap-4" data-purpose="footer-info">
+<span>CHÚC MỪNG NĂM MỚI 2024</span>
+<span class="w-1 h-1 bg-white/40 rounded-full"></span>
+<span>XUÂN GIÁP THÌN</span>
+</footer>
+<!-- END: Footer Branding -->
+</main>
+<!-- END: Main Content Wrapper -->
+</body></html>
